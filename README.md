@@ -1,5 +1,4 @@
 **Importants:**
-
 ![topics](https://cdn.discordapp.com/attachments/915830242692718633/1089522073283596408/image.png)
 
 ## Quick Sort:
@@ -123,3 +122,61 @@ a < b^k
 ```py
 a > b^k
 ```
+
+**Importants:**
+
+![unit2](https://media.discordapp.net/attachments/915830242692718633/1089531760116772934/image.png?width=581&height=683)
+
+## Optimization Problems:
+
+* Problem with an objective function and a set of constraints:
+    * Maximize some profit 
+    * Minimize some cost
+  
+**Techniques:**
+* Greedy Algorithms
+* Dynamic Programming
+  
+**Greedy Algorithms:**
+* Divide the problem into subproblems
+* For each step take the best choice at the current moment (local optimum)
+* The hope: A locally optimal choice will lead to a globally optimal solution
+
+#### Fractional Knapsack Problem:
+**Pseudocode:**
+```
+fractional-knapsack(W, n, v, w)
+    for i = 1 to n
+        x[i] = 0
+    for i = 1 to n
+        if w[i] <= W
+            x[i] = 1
+            W = W - w[i]
+        else x[i] = W/w[i]
+            W = 0
+    return x
+```
+**Knapsack with dynamic programming:**
+
+```
+if wi <= w:
+    if bi + B[i-1,w-wi] > B[i-1,w]:
+        B[i,w] = bi + B[i-1,w-wi]
+    else:
+        B[i,w] = B[i-1,w]
+else:
+    B[i,w] = B[i-1,w]
+```
+**To select item**
+```
+B[n,w] is the maximum value that can be put in a knapsack of capacity w
+let i = n and k= w
+if B[i,k] != B[i-1,k]:
+    select item i
+    k = k - wi
+else:
+    i = i-1
+```
+![ref](https://media.discordapp.net/attachments/915850002453114911/1089543580885979187/image.png?width=773&height=683)
+
+*For reference*
